@@ -8,6 +8,6 @@ Try running some of the following tasks:
 
 ```shell
 npx hardhat compile
-npx hardhat node --fork `mainnet url`
+npx hardhat node --fork ethereum mainnet rpc url
 npx hardhat run scripts/swap.ts
 ```
