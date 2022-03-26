@@ -1,4 +1,4 @@
-# Swap Ether to Dai
+# Swap Link to Matic
 
 This project allows users to swap ether for dai using the chainlink pricefeed. For each ether value sent in, they get the equivalent value in dai. 
 
