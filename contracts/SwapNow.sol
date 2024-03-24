@@ -28,7 +28,7 @@ contract SwapNow {
             /*uint timeStamp*/,
             /*uint80 answeredInRound*/
         ) = priceFeedForLink.latestRoundData();
-        return price;
+        return uint256(price * 1e10);
     }
 
     function getLatestPrice2() public view returns (int) {
@@ -39,7 +39,7 @@ contract SwapNow {
             /*uint timeStamp*/,
             /*uint80 answeredInRound*/
         ) = priceFeedForMatic.latestRoundData();
-        return price;
+        return uint256(price * 1e10);
     }
 
 
@@ -56,10 +56,10 @@ contract SwapNow {
     // bring aave to collect dai
     function getDaiQty(uint _amount) public view returns(uint) {
         // get the eQuivalent of ether 
-        (int linkPrice) = getLatestPrice1();
-        (int maticPrice) = getLatestPrice2();
-        uint usdValue = uint(_amount * uint(linkPrice));
-        return (usdValue / (uint(maticPrice))); 
+        (uint256 linkPrice) = getLatestPrice1();
+        (uint256 maticPrice) = getLatestPrice2();
+        uint usdValue = (_amount * linkPrice) / 1e18; //
+        return (usdValue / (maticPrice/1e18));
     }
     
 
