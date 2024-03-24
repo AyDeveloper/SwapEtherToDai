@@ -20,7 +20,7 @@ contract SwapNow {
          priceFeedForMatic = AggregatorV3Interface(0x7bAC85A8a13A4BcD8abb3eB7d6b4d632c5a57676);
     }
 
-     function getLatestPrice1() public view returns (int) {
+     function getLatestPrice1() public view returns (uint256) {
         (
             /*uint80 roundID*/,
             int price,
@@ -31,7 +31,7 @@ contract SwapNow {
         return uint256(price * 1e10);
     }
 
-    function getLatestPrice2() public view returns (int) {
+    function getLatestPrice2() public view returns (uint256) {
         (
             /*uint80 roundID*/,
             int price,
